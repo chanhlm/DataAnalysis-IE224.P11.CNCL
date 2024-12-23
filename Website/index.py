@@ -2,7 +2,7 @@ import streamlit as st
 import pickle
 import pandas as pd
 import numpy as np
-from xgboost import XGBClassifier
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 
 # Set the page title
@@ -10,7 +10,7 @@ st.set_page_config(layout="wide",page_title="Ho Chi Minh City Rain Forecast", pa
 
 # Sidebar
 image_path = "https://bna.1cdn.vn/2024/08/03/i.ytimg.com-vi-jgiywzpss3u-_maxresdefault.jpg"
-st.sidebar.image(image_path, use_column_width=True)
+st.sidebar.image(image_path, use_container_width=True)
 st.sidebar.title('`Ho Chi Minh City Rain Forecast`')
 st.sidebar.write("Đồ án môn học: Phân tích dữ liệu - IE224.P11.CNCL")
 st.sidebar.write("Hồ Quang Lâm - 21521049 - HTTT")
@@ -39,15 +39,13 @@ def train_model(df, locations):
         scaler = StandardScaler()
         x = scaler.fit_transform(x)
 
-        model = XGBClassifier(
-            n_estimators=100,        # Số lượng cây
-            learning_rate=0.01,      # Tốc độ học nhỏ hơn
-            max_depth=3,             # Độ sâu tối đa của cây
-            subsample=0.8,           # Tỷ lệ mẫu được chọn ngẫu nhiên từ tập huấn luyện
-            colsample_bytree=0.8,    # Tỷ lệ đặc trưng được chọn ngẫu nhiên cho mỗi cây
-            reg_alpha=0.1,           # Regularization L1
-            reg_lambda=1,            # Regularization L2
-            random_state=42
+        model = RandomForestClassifier(
+        n_estimators=50,
+        max_depth=7,            # Giới hạn độ sâu cây
+        min_samples_split=10,     # Số mẫu tối thiểu để chia
+        min_samples_leaf=1,      # Số mẫu tối thiểu cho mỗi lá
+        max_features= 'sqrt',
+        random_state=42
         )
         model.fit(x, y)
         scalers[location] = scaler
