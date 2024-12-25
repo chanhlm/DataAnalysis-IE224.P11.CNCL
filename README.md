@@ -19,7 +19,7 @@
 
 ## Overview dataset
 - Collected from the [Open-Meteo Historical Weather API](https://open-meteo.com/en/docs/historical-weather-api), based on the coordinate data of 22 districts, towns, and cities in Ho Chi Minh City, gathered from the [Nominatim | OpenStreetMap Website](https://nominatim.openstreetmap.org/ui/search.html).
-- Size: 80.388 rows x 29 columns
+- Size: `80.388 rows x 29 columns`
 - The attributes include recorded weather parameters such as temperature, humidity, wind direction, rainfall, cloud cover, and more.
 
 ## Summary
@@ -33,8 +33,8 @@
   - Model deployment: Deploy the model as a web application for users to access and interact with.
 
 ## Technology: 
-- ipynb: Pandas, Numpy, Scikit-learn, Matplotlib, Seaborn, Xgboost, Lightgbm
-- Website: Streamlit
+- **ipynb**: Pandas, Numpy, Scikit-learn, Matplotlib, Seaborn, Xgboost, Lightgbm
+- **Website**: Streamlit
 
 
 
