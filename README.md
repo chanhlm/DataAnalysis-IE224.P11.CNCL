@@ -1,4 +1,4 @@
-# IE224.P11.CNCL- Social Network
+# IE224.P11.CNCL - Data Analysis
 
 ## Course Information
 - **Course**: IE224.P11.CNCL - Data Analysis
